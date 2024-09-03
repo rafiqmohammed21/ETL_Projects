@@ -1,0 +1,1 @@
+A healthcare provider needs to consolidate patient records from multiple MySQL databases into a single PostgreSQL database for analysis. The data needs to be transformed to standardize patient IDs and filter out records with invalid data.

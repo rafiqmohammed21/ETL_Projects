@@ -1,0 +1,1 @@
+A retail company needs to migrate sales data from multiple CSV files stored in an on-premise server to an Amazon Redshift data warehouse. The data needs to be cleaned and aggregated by product category before being loaded into the target table.

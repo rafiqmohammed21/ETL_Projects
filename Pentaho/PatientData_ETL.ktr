@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<transformation>
+  <info>
+    <name>PatientData_ETL</name>
+    <description>Sample ETL for Patient Data</description>
+    <extended_description></extended_description>
+  </info>
+  <step>
+    <name>Table Input</name>
+    <type>TableInput</type>
+    <database>
+      <name>MySQL</name>
+      <server>localhost</server>
+      <database>mydb</database>
+      <username>root</username>
+      <password>root</password>
+    </database>
+    <sql>
+      <![CDATA[SELECT * FROM patients]]>
+    </sql>
+  </step>
+  <step>
+    <name>Filter Rows</name>
+    <type>FilterRows</type>
+    <condition>
+      <condition>
+        <leftfield>PatientID</leftfield>
+        <function>IS NOT NULL</function>
+      </condition>
+      <operator>AND</operator>
+      <condition>
+        <leftfield>DateOfBirth</leftfield>
+        <function>IS NOT NULL</function>
+      </condition>
+    </condition>
+  </step>
+  <step>
+    <name>Table Output</name>
+    <type>TableOutput</type>
+    <database>
+      <name>PostgreSQL</name>
+      <server>localhost</server>
+      <database>consolidated_db</database>
+      <username>root</username>
+      <password>root</password>
+    </database>
+    <table>ConsolidatedPatients</table>
+  </step>
+</transformation>

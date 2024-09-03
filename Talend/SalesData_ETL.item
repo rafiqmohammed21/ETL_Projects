@@ -1,0 +1,21 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<talendfile:ProcessType xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:talendfile="http://www.talend.org/properties">
+  <context name="Default" confirmationNeeded="false">
+    <contextParameter name="Host" prompt="Host" type="id_String" value="localhost" />
+    <contextParameter name="Database" prompt="Database" type="id_String" value="mydb" />
+    <contextParameter name="User" prompt="User" type="id_String" value="root" />
+    <contextParameter name="Password" prompt="Password" type="id_Password" value="root" />
+  </context>
+  <parameters>
+    <elementParameter field="TEXT" name="UNIQUE_NAME" value="SalesData_ETL" />
+    <elementParameter field="TEXT" name="NAME" value="SalesData_ETL" />
+    <elementParameter field="TEXT" name="AUTHOR" value="ChatGPT" />
+  </parameters>
+  <node componentName="tFileInputDelimited" label="CSV Input" offsetLabelX="0" offsetLabelY="0" posX="150" posY="100">
+    <elementParameter field="TEXT" name="FILENAME" value="&quot;/path/to/sales_data.csv&quot;" />
+  </node>
+  <node componentName="tRedshiftOutputBulk" label="Redshift Output Bulk" offsetLabelX="0" offsetLabelY="0" posX="400" posY="100">
+    <elementParameter field="TEXT" name="FILENAME" value="&quot;/path/to/output_data.csv&quot;" />
+  </node>
+  <connection connectorName="FLOW" label="" lineStyle="1" source="tFileInputDelimited_1" target="tRedshiftOutputBulk_1"/>
+</talendfile:ProcessType>
